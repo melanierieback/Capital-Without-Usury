@@ -1,0 +1,63 @@
+name: Deploy book reader to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # Attempts to enable Pages (source: GitHub Actions) if it isn't already.
+      # continue-on-error because the default GITHUB_TOKEN may lack admin rights;
+      # in that case enable Pages once in Settings -> Pages -> Source = GitHub Actions.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        continue-on-error: true
+        with:
+          enablement: true
+
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up pnpm 10 via corepack
+        run: |
+          corepack enable
+          corepack install --global pnpm@10
+
+      - name: Install dependencies
+        run: pnpm install --filter @workspace/book-reader...
+
+      - name: Build book reader
+        run: BASE_PATH=/Capital-Without-Usury/ pnpm --filter @workspace/book-reader build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: artifacts/book-reader/dist/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
