@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Generate the placeholder cover art and the Open Graph card for the reader.
+"""Generate cover placeholder art and the Open Graph card for the reader.
 
-The cover at attached_assets/capital-without-usury-cover.png is a typographic
-PLACEHOLDER in the NEC palette. To replace it with real cover art, overwrite
-that file with the final image (same filename, ideally around 1086 x 1448 px,
-3:4 portrait) and rebuild; no code change is needed. Then rerun this script
-with --og-only to refresh the Open Graph card from the new cover.
+The final cover art was installed on 14 Jul 2026. This script's default mode
+(no flags) would OVERWRITE it with a typographic placeholder, so normally run
+it only as `make_placeholder_art.py --og-only`, which rebuilds the Open Graph
+card (opengraph.jpg) from whatever cover is at
+attached_assets/capital-without-usury-cover.png. To swap in new cover art:
+overwrite that file (same filename, about 1086 x 1448 px, 3:4 portrait), run
+--og-only, and rebuild; no code change is needed.
 """
 import argparse
 import math

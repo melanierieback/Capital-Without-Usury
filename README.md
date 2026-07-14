@@ -43,7 +43,7 @@ The converter mirrors the book's own `assemble.py` (unit order, Part divisions),
 
 ## Cover art
 
-`attached_assets/capital-without-usury-cover.png` is currently a **typographic placeholder**. To install the real cover: overwrite that file with the final image (same filename; portrait, about 1086 x 1448 px), run `python3 tools/make_placeholder_art.py --og-only` to refresh the social-share card (`opengraph.jpg`), commit, and push. No code change is needed.
+`attached_assets/capital-without-usury-cover.png` is the final cover (1086 x 1448 px, installed 14 Jul 2026). To swap in a new version later: overwrite that file (same filename; portrait, about 1086 x 1448 px), run `python3 tools/make_placeholder_art.py --og-only` to refresh the social-share card (`opengraph.jpg`), commit, and push. No code change is needed.
 
 ## Repo layout
 
