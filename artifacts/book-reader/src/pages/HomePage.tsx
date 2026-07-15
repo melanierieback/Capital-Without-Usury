@@ -154,7 +154,7 @@ export function HomePage({ onOpenReading, darkMode, onToggleDark }: HomePageProp
         {/* Header */}
         <header className="relative z-20 nec-header">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 h-[68px] flex items-center justify-between gap-6">
-            <NecLogo size="sm" />
+            <NecLogo size="sm" href="https://melanierieback.github.io/NEC-Home-Small/index.html" />
 
             {/* Center nav */}
             <nav className="hidden md:flex items-center gap-1" aria-label="Site navigation">

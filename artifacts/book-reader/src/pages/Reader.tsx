@@ -191,7 +191,7 @@ export function Reader({ initialChapterSlug, initialSectionSlug, onGoHome, darkM
       >
         <div className="flex items-center h-full px-5 md:px-7 gap-4">
           {/* Logo */}
-          <NecLogo size="sm" className="shrink-0" />
+          <NecLogo size="sm" className="shrink-0" href="https://melanierieback.github.io/NEC-Home-Small/index.html" />
 
           {/* ← Back to Contents (desktop) */}
           <button
