@@ -38,8 +38,8 @@ export function NecLogo({ className = "", size = "md", href }: NecLogoProps) {
     return (
       <a
         href={href}
-        aria-label="Non-Extractive Capital — home"
-        title="Non-Extractive Capital — home"
+        aria-label="Back to the NEC home page"
+        title="Back to the NEC home page"
         className={`flex items-center select-none shrink-0 ${className}`}
       >
         {img}
